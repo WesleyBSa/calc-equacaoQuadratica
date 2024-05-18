@@ -155,3 +155,9 @@ footer p {
     width: 30px;
     height: auto;
 }
+
+@media (max-width: 600px) {
+    h1 {
+      font-size: 12px;
+    }
+}
