@@ -111,6 +111,11 @@ button:hover {
     overflow-y: auto;
 }
 
+em {
+    color: #0479ff;
+    text-shadow: 0 1px 2px #ce9700;
+}
+
 .container-formula {
     text-align: center;
 }
