@@ -15,15 +15,31 @@ document.getElementById('calcular').addEventListener('click', function() {
     resultadoDiv.innerHTML += `<p>Δ = ${b}² - 4 * ${a} * ${c}</p>`;
     resultadoDiv.innerHTML += `<p>Δ = ${delta}</p>`;
 
-    if (delta < 0) {
-        resultadoDiv.innerHTML += `<p>Como Δ é negativo (${delta}), a equação não possui raízes reais.</p>`;
+    if (isNaN(delta)) {
+        resultadoDiv.innerHTML += `<p><i>O delta é indefinido (NaN), a equação não possui raízes reais.</i></p>`;
+    } else if (!isFinite(delta)) {
+        resultadoDiv.innerHTML += `<p><i>O delta é infinito, a equação não possui raízes reais.</i></p>`;
+    } else if (delta < 0) {
+        resultadoDiv.innerHTML += `<p><i>Como Δ é negativo (${delta}), a equação não possui raízes reais.</i></p>`;
+    } else if (delta === 0) {
+        const x = -b / (2 * a);
+        resultadoDiv.innerHTML += `<p><i>Como Δ é zero (${delta}), a equação possui uma única raiz real igual.</i></p>`;
+        resultadoDiv.innerHTML += `<p>x = -${b} / (2 * ${a})</p>`;
+        resultadoDiv.innerHTML += `<p>x = ${x}</p>`;
     } else {
         const x1 = (-b + Math.sqrt(delta)) / (2 * a);
         const x2 = (-b - Math.sqrt(delta)) / (2 * a);
-        resultadoDiv.innerHTML += `<p>x1 = (-${b} + √${delta}) / (2 * ${a})</p>`;
-        resultadoDiv.innerHTML += `<p>x1 = ${x1}</p>`;
-        resultadoDiv.innerHTML += `<p>x2 = (-${b} - √${delta}) / (2 * ${a})</p>`;
-        resultadoDiv.innerHTML += `<p>x2 = ${x2}</p>`;
+
+        // Verificando se x1 ou x2 são NaN ou infinito
+        if (isNaN(x1) || isNaN(x2) || !isFinite(x1) || !isFinite(x2)) {
+            resultadoDiv.innerHTML += `<p><i>A equação não possui raízes reais.</i></p>`;
+        } else {
+            resultadoDiv.innerHTML += `<p><i>Como Δ é positivo (${delta}), a equação possui duas raízes reais e distintas.</i></p>`;
+            resultadoDiv.innerHTML += `<p>x1 = (-${b} + √${delta}) / (2 * ${a})</p>`;
+            resultadoDiv.innerHTML += `<p>x1 = ${x1}</p>`;
+            resultadoDiv.innerHTML += `<p>x2 = (-${b} - √${delta}) / (2 * ${a})</p>`;
+            resultadoDiv.innerHTML += `<p>x2 = ${x2}</p>`;
+        }
     }
 });
 
