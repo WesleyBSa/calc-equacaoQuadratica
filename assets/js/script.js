@@ -10,6 +10,15 @@ document.getElementById('calcular').addEventListener('click', function() {
         resultadoDiv.innerHTML = 'Por favor, insira valores válidos para a, b e c.';
         return;
     }
+    
+    if (a === 0) {
+        resultadoDiv.innerHTML = `<p  class="advert">Por favor, insira outro valor no coeficiente <span>"a"</span>. Uma vez que o <span>"a"</span> não pode ser igual a <span>0</span> pois a função não seria do 2° grau.</p>`;
+        resultadoDiv.classList.add('blink'); // Adicionando a classe de animação blink
+        setTimeout(function() {
+            resultadoDiv.classList.remove('blink');
+        }, 1000);
+        return;
+    }
 
     const delta = b * b - 4 * a * c;
     resultadoDiv.innerHTML += `<p>Δ = ${b}² - 4 * ${a} * ${c}</p>`;

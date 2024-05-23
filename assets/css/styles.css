@@ -113,7 +113,12 @@ button:hover {
 
 em {
     color: #0479ff;
-    text-shadow: 0 1px 2px #ce9700;
+    text-shadow: 0 1px 1px #ce9700;
+}
+
+span {
+    color: #003686;
+    font-weight: bolder;
 }
 
 .container-formula {
@@ -166,3 +171,33 @@ footer p {
       font-size: 12px;
     }
 }
+
+.advert {
+    position: relative;
+    font-style: italic;
+    color: #ee7505;
+    text-shadow: 0 0 1px #000000, 0 0 2px #ecc411;
+}
+
+.advert::after {
+    content: '◀️'; /* Símbolo apontando para o lado esquerdo */
+    font-size: 0.8em; /* Tamanho maior */
+    position: absolute;
+    top: 50%; /* Posicione o emoji no meio verticalmente */
+    left: calc(95%); /* Posicione o emoji ao lado direito da mensagem */
+    transform: translateY(-50%); /* Centralize verticalmente */
+    animation: blink-animation 1s infinite;
+}
+
+@keyframes blink-animation {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
