@@ -41,8 +41,12 @@ Calculadora de Equação Quadrática/
 └── README.md          # Documentação do projeto
 ```
 
-### Imagem do Projeto
-![Imagem do Projeto](assets/img/calc.mp4)
+### Demonstração
+
+
+https://github.com/WesleyBSa/calc-equacaoQuadratica/assets/88838006/6abb8dcb-ab9b-4097-b9fd-6702f9ed6180
+
+
 
 ### Como Executar o Projeto
 1. Clone o repositório ou faça o download dos arquivos.
